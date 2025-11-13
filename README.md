@@ -24,9 +24,10 @@ Students will work collaboratively to implement different services, including **
 
 ### 🔀 Branch Structure
 
-- **`main`** — The stable branch (do not push directly here).  
-- **Feature branches** — Create a new branch for every task or story.  
-  - Naming convention:  
+* **`master`** — The stable branch (do not push directly here).  
+* **Feature branches** — Create a new branch for every task or story.  
+* Naming convention:
+
     ```
     feature/<short-description>
     ```
@@ -78,7 +79,7 @@ refactor: clean up Flask app structure
 Push your branch to GitHub:
 
 ```bash
-git push origin feature/<your-name>/<task-name>
+git push origin feature/<task-name>
 ```
 
 Open a Pull Request from your branch → master
