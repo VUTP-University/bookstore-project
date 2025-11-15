@@ -1,0 +1,28 @@
+services:
+  auth-db:
+    image: postgres:latest
+    container_name: bookstore_auth_db
+    hostname: auth_db
+    environment:
+      POSTGRES_USER: ${AUTH_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${AUTH_POSTGRES_PASSWORD}
+      POSTGRES_DB: ${AUTH_POSTGRES_DBNAME}
+      TZ: Europe/Sofia
+    ports:
+      - "5450:5432"
+    volumes:
+      - auth-bookstoredb-data:/var/lib/postgresql/data
+    networks:
+      - bookstore_network
+
+
+
+volumes:
+  auth-bookstoredb-data:
+    driver: local
+    name: auth-bookstoredb-data
+
+networks:
+  bookstore_network:
+    driver: bridge
+    name: bookstore_network
