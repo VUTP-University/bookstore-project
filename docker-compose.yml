@@ -14,6 +14,22 @@ services:
       - auth-bookstoredb-data:/var/lib/postgresql/data
     networks:
       - bookstore_network
+  
+  books-db:
+    image: postgres:latest
+    container_name: bookstore_books_db
+    hostname: books_db
+    environment:
+      POSTGRES_USER: ${BOOKS_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${BOOKS_POSTGRES_PASSWORD}
+      POSTGRES_DB: ${BOOKS_POSTGRES_DBNAME}
+      TZ: Europe/Sofia
+    ports:
+      - "5451:5432"
+    volumes:
+      - books-bookstoredb-data:/var/lib/postgresql/data
+    networks:
+      - bookstore_network
 
 
 
@@ -21,6 +37,9 @@ volumes:
   auth-bookstoredb-data:
     driver: local
     name: auth-bookstoredb-data
+  books-bookstoredb-data:
+    driver: local
+    name: books-bookstoredb-data
 
 networks:
   bookstore_network:
